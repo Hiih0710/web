@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        form {
+            background-color: white;
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            width: 95%;
+            padding: 8px;
+            margin: 8px 0 15px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        @media (max-width: 450px) {
+            body {
+                padding: 15px;
+            }
+
+            form {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Form Validation</h2>
+
+    <form onsubmit="return validation()">
+
+        Name:
+        <input type="text" id="name"
+               placeholder="Enter the name" required>
+
+        Email:
+        <input type="email" id="email"
+               placeholder="Enter the email" required>
+
+        Contact:
+        <input type="tel" id="phone"
+               placeholder="Enter the phone number" required>
+
+        Password:
+        <input type="password" id="pass"
+               placeholder="Enter the password" required>
+
+        Confirm Password:
+        <input type="password" id="pass1"
+               placeholder="Confirm password" required>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+
+    <script>
+        function validation() {
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let contact = document.getElementById("phone").value.trim();
+            let pass = document.getElementById("pass").value;
+            let pass1 = document.getElementById("pass1").value;
+
+            if (name == "" || email == "" ||
+                contact == "" || pass == "" || pass1 == "") {
+                alert("All fields are mandatory");
+                return false;
+            }
+            else if (!/^\d{10}$/.test(contact)) {
+                alert("Enter a valid 10-digit phone number");
+                return false;
+            }
+            else if (pass.length < 8) {
+                alert("Password must contain at least 8 characters");
+                return false;
+            }
+            else if (pass != pass1) {
+                alert("Passwords do not match");
+                return false;
+            }
+            else {
+                alert("Form submitted successfully!");
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>
