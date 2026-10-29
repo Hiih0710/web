@@ -1,0 +1,12 @@
+1. Build
+
+docker build -t my-web-app .
+
+Docker image banata hai.
+Copy command
+
+2. Run
+
+docker run -d -p 8080:80 --name web-container my-web-app
+
+Image se container create aur start karta hai.
