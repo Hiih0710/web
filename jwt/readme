@@ -1,0 +1,9 @@
+POST /register — user register karta hai.
+
+
+
+POST /login — password verify karke JWT generate karta hai.
+
+
+
+GET /profile — valid JWT ke bina profile access nahi karne deta.
